@@ -1,0 +1,40 @@
+<modification>
+    <name>Предложение о партнерстве</name>
+    <code>mymodule</code>
+    <version>1.0</version>
+    <author>Yehor</author>
+    <file path="admin/controller/common/column_left.php">
+        <operation>
+            <search ><![CDATA[
+           $catalog = array();
+            ]]></search>
+            <add position="before"><![CDATA[
+                
+                $data['menus'][] = array(
+                'id'       => 'menu-dashboard',
+                'icon'     => 'fa-user',
+                'name'     => $this->language->get('text_dashboard'),
+                'href'     => $this->url->link('sale/paroff', 'token=' . $this->session->data['token'], true),
+                'children' => array()
+            );
+
+              ]]></add>
+        </operation>
+    </file>  
+
+    <file path="catalog/controller/extension/module/account.php">
+        <operation>
+            <search><![CDATA[
+           $data['text_login'] = $this->language->get('text_login');]]></search>
+
+           <add position="before"><![CDATA[
+                
+        $data['text_paroff'] = $this->language->get('text_paroff');
+                
+
+              ]]></add>
+
+        </operation>
+    </file>
+    
+</modification>
