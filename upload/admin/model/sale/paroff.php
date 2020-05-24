@@ -1,7 +1,7 @@
 <?php
 class ModelSaleParoff extends Model {
 		public function addReturn($data) {
-		$this->db->query("UPDATE `" . DB_PREFIX . "paroff` SET return_status_id = '" . (int)$data['return_status_id'] . "' WHERE id = '" .$_GET['return_id'] ." '");
+		$this->db->query("UPDATE `" . DB_PREFIX . "paroff` SET return_status_id = '" . (int)$data['return_status_id'] . "' WHERE id = '" . $data['return_id'] ." '");
 	
 		return $this->db->getLastId();
 	}
